@@ -1,0 +1,83 @@
+create database if not exists electronic_device_shop;
+
+use electronic_device_shop;
+
+
+CREATE TABLE brand(
+brand_id int,
+brand_name varchar(50),
+PRIMARY KEY (brand_id)
+);
+
+CREATE TABLE customers(
+customer_id int,
+name varchar(50),
+address varchar(50),
+email varchar(50),
+phone_number int,
+PRIMARY KEY (customer_id)
+);
+
+
+CREATE TABLE products(
+product_id     int,
+product  varchar(50), 
+brand_id int,
+price  int,
+storage    int,
+category  varchar(50),
+qty  int,
+PRIMARY KEY (product_id),
+FOREIGN KEY (brand_id) REFERENCES brand(brand_id)
+);
+
+
+CREATE TABLE order_details(
+order_id int,
+customer_id int,
+product_id int,
+date date,
+PRIMARY KEY (order_id),
+FOREIGN KEY (product_id) REFERENCES products(product_id),
+FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+CREATE TABLE users(
+user_name varchar(50),
+password varchar(50)
+);
+
+insert into brand values (1001,'Dell');
+insert into brand values (1002,'Lenovo');
+insert into brand values (1003,'Apple');
+insert into brand values (1004,'Acer');
+
+insert into customers values(202101,'Joyce','NTU','joyce@gmail.com',85336678);
+insert into customers values (202102,'Youyou','NUS','youyou@gmail.com',96224493);
+insert into customers values (202103,'Amy','SMU','amy@gmail.com',93702255);
+
+
+insert into products values (001,'Lenovo V110',1002,321,128,'computer',10);
+insert into products values (002,'Lenovo V220',1002,356,256,'computer',15);
+insert into products values (003,'ThinkPad Yoga',1002,1223,128,'laptop',11);
+insert into products values (004,'Apple iPad Air',1003,603,128,'tablet',20);
+insert into products values (005,'Apple iPad Pro',1003,1200,128,'tablet',5);
+insert into products values (006, 'Macbook Air', 1003, 1500, 256, 'laptop',10);
+insert into products values (007,'Macbook Pro',1003,2349,512,'laptop',20);
+insert into products values (008, 'Inspiron 24',1001,1599,512,'computer',15);
+insert into products values (009,'Inspiron 27',1001,1599,256,'computer',12);
+insert into products values (010,'Thinkpad 2',1001,2005, 0,'tablet',10);
+insert into products values (011,'Swift 5',1004,1798,512,'laptop',30);
+insert into products values (012,'Aspire 5',1004,1248,512,'laptop',5);
+
+
+insert into order_details values (1,202103,001,'2021-01-19');
+insert into order_details values (2,202101,005,'2021-01-20');
+
+insert into users values('joyce',joyce123);
+insert into users values('youyou',youyou123);
+
+
+
+
+

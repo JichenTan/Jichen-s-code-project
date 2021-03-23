@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Yet Another e-Computershop</title>
+</head>
+<body>
+  <h2>Yet Another e-Computershop</h2>
+  <form method="get" action="http://localhost:9999/ecomputershop/query">
+    Choose an category:
+    <input type="checkbox" name="category" value= "computer" />computer
+   <input type="checkbox" name="category" value= "laptop" />laptop
+  <input type="checkbox" name="category" value= "tablet" />tablet
+  <input type="checkbox" name="category" value= "accessory" />accessory
+    <br /><br />
+    Choose a price range:
+    <input type="radio" name="price" value="100" checked />less than $100
+    <input type="radio" name="price" value="1000" />less than $1000
+    <input type="radio" name="price" value="2000" />less than $2000
+    <input type="radio" name="price" value="3000" />less than $3000
+    <br /><br />
+    <input type="submit" value="Search" />
+    <input type="reset" value="Clear" />
+  </form>
+</body>
+</html>
